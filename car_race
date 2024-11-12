@@ -1,0 +1,56 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Define the 'Car' class
+class Car {
+public:
+    int speed;          // Maximum speed of the car
+    double mileage;     // Mileage per km
+    string name;        // Name of the car
+
+    // Constructor to initialize the car attributes
+    Car(string carName, int carSpeed, double carMileage) {
+        name = carName;
+        speed = carSpeed;
+        mileage = carMileage;
+    }
+
+    // Member function to display car details
+    void displayDetails() {
+        cout << "Car Name: " << name << endl;
+        cout << "Speed: " << speed << " km/h" << endl;
+        cout << "Mileage: " << mileage << " km/l" << endl;
+    }
+
+    // Member function to simulate a race
+    void race(Car otherCar) {
+        cout << "\nThe race begins between " << name << " and " << otherCar.name << "!" << endl;
+        
+        if (speed > otherCar.speed) {
+            cout << name << " wins the race!" << endl;
+        } else if (speed < otherCar.speed) {
+            cout << otherCar.name << " wins the race!" << endl;
+        } else {
+            cout << "It's a tie! Both cars have the same speed." << endl;
+        }
+    }
+};
+
+// Main function to run the program
+int main() {
+    // Create two car objects using the constructor
+    Car car1("Ferrari", 300, 10.5);
+    Car car2("Lamborghini", 280, 8.5);
+
+    // Display details of both cars
+    cout << "Car 1 Details:" << endl;
+    car1.displayDetails();
+    cout << "\nCar 2 Details:" << endl;
+    car2.displayDetails();
+
+    // Simulate a race between the two cars
+    car1.race(car2);
+
+    return 0;
+}
